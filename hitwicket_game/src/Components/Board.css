@@ -49,3 +49,19 @@
 .piece.B-P1, .piece.B-P2, .piece.B-H1, .piece.B-H2, .piece.B-H3 {
   background-color: blue; /* Player B's pieces in blue */
 }
+
+
+/* Example */
+.board-cell {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.piece {
+  font-size: 19px;
+  color: #fff; /* Ensure this isn't blending with the background */
+}

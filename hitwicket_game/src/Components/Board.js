@@ -1,6 +1,6 @@
 // src/Components/Board.js
 import React from "react";
-import "../Components/Board.css";
+import "./Board.css";
 
 const Board = ({ board, handleCellClick, selectedCharacter }) => {
   return (
@@ -12,6 +12,7 @@ const Board = ({ board, handleCellClick, selectedCharacter }) => {
             selectedCharacter.row === rowIndex &&
             selectedCharacter.col === colIndex;
           const cellClass = cell ? "occupied" : "empty";
+
           return (
             <div
               key={`${rowIndex}-${colIndex}`}
@@ -21,7 +22,8 @@ const Board = ({ board, handleCellClick, selectedCharacter }) => {
               onClick={() => handleCellClick(rowIndex, colIndex)}
             >
               {/* Rendering the piece */}
-              {cell && <div className={`piece ${cell}`}>{cell}</div>}
+              {cell && <div className={`piece ${cell.split('-')[1]}`}>{cell}</div>}
+              {/* {cell && <div className={`piece ${cell}`}>{cell}</div>} */}
             </div>
           );
         })

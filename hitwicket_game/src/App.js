@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Board from "./Components/Board";
@@ -65,25 +64,58 @@ function App() {
 
   const handleCellClick = (row, col) => {
     const cell = board[row][col];
+
+    // If a piece belonging to the current player is clicked
     if (cell && cell.startsWith(turn)) {
       setSelectedCharacter({ row, col, name: cell });
+    } 
+    // If a cell is clicked to move the selected piece
+    else if (selectedCharacter) {
+      const validMove = checkMoveValidity(selectedCharacter, row, col);
+
+      if (validMove) {
+        const updatedBoard = [...board];
+
+        // Move the piece and clear its previous spot
+        updatedBoard[selectedCharacter.row][selectedCharacter.col] = null;
+        updatedBoard[row][col] = selectedCharacter.name;
+
+        // Update the state
+        setBoard(updatedBoard);
+        setMoveHistory([...moveHistory, { from: selectedCharacter, to: { row, col } }]);
+
+        // Switch turns
+        setTurn(turn === "A" ? "B" : "A");
+        setSelectedCharacter(null);
+      }
     }
+  };
+
+  // Function to check if the move is valid based on character type
+  const checkMoveValidity = (selectedCharacter, targetRow, targetCol) => {
+    // const characterType = selectedCharacter.name.split('-')[1]?.[0]; 
+    return true;
   };
 
   const highlightValidMoves = () => {
     if (selectedCharacter) {
       const { name } = selectedCharacter;
-      const characterType = name.split('-')[1][0];
-      const moves = CharacterTypes[characterType].moves;
-      return (
-        <div className="valid-moves">
-          {moves.map((move) => (
-            <button key={move} onClick={() => handleMove(name, move)}>
-              {move}
-            </button>
-          ))}
-        </div>
-      );
+      const characterType = name.split('-')[1]?.[0]; 
+      if (characterType && CharacterTypes[characterType]) {
+        const moves = CharacterTypes[characterType].moves;
+        return (
+          <div className="valid-moves">
+            {moves.map((move) => (
+              <button key={move} onClick={() => handleMove(name, move)}>
+                {move}
+              </button>
+            ))}
+          </div>
+        );
+      } else {
+        console.error("Invalid character type:", characterType);
+        return null;
+      }
     }
     return null;
   };
