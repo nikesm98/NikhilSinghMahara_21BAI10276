@@ -72,10 +72,10 @@ The project is organized into a single repository with clear separation between 
    git clone https://github.com/nikesm98/NikhilSinghMahara_21BAI10276.git
    cd your-repo-name
 
-### Install Dependencies for Both Client and Server
+2. **Install Dependencies for Both Client and Server**:
 
-```bash
-cd game
-npm install
-cd ../hitwicket_game
-npm install
+   ```bash
+   cd game
+   npm install
+   cd ../hitwicket_game
+   npm install
