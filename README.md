@@ -71,3 +71,11 @@ The project is organized into a single repository with clear separation between 
    ```bash
    git clone https://github.com/nikesm98/NikhilSinghMahara_21BAI10276.git
    cd your-repo-name
+
+### Install Dependencies for Both Client and Server
+
+```bash
+cd game
+npm install
+cd ../hitwicket_game
+npm install
