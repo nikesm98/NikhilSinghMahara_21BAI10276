@@ -1,0 +1,51 @@
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 60px); /* 5 columns, each 60px wide */
+  grid-template-rows: repeat(5, 60px);    /* 5 rows, each 60px tall */
+  gap: 5px; /* space between cells */
+  justify-content: center;
+}
+
+.board-row {
+  display: contents; /* Makes sure rows are treated as part of the grid */
+}
+
+.board-cell {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #444;
+  cursor: pointer;
+  box-sizing: border-box; /* Ensure padding doesn't affect size */
+}
+
+.board-cell.empty {
+  background-color: #222; /* Empty cells have a distinct background */
+}
+
+.board-cell.occupied {
+  background-color: #444; /* Occupied cells have a different background */
+}
+
+.board-cell.selected {
+  background-color: #555; /* Highlight for the selected cell */
+}
+
+.piece {
+  font-size: 14px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff; /* Ensure text color contrasts with the background */
+}
+
+.piece.A-P1, .piece.A-P2, .piece.A-H1, .piece.A-H2, .piece.A-H3 {
+  background-color: red; /* Player A's pieces in red */
+}
+
+.piece.B-P1, .piece.B-P2, .piece.B-H1, .piece.B-H2, .piece.B-H3 {
+  background-color: blue; /* Player B's pieces in blue */
+}

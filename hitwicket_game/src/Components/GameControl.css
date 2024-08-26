@@ -1,0 +1,39 @@
+
+.game-controls {
+  margin-top: 20px;
+}
+
+.selected-character {
+  margin-bottom: 20px;
+}
+
+.valid-moves button {
+  margin-right: 5px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #666;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.valid-moves button:hover {
+  background-color: #888;
+}
+
+.move-history {
+  margin-top: 20px;
+}
+
+.move-history ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.move-history li {
+  background-color: #444;
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 3px;
+}
